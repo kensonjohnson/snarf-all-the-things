@@ -1,8 +1,8 @@
 {
   "name": "snarf-all-the-things",
   "version": "1.0.0",
-  "description": "A Chrome browser extension to download images via clicking on them.",
-  "main": "index.js",
+  "description": "A Chrome browser extension to grab image source URLs and bundle them into a single text file.",
+  "main": "popup.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

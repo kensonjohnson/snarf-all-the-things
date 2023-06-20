@@ -2,12 +2,7 @@ document.body.addEventListener("click", handleClick);
 
 const imageSources = new Set();
 
-recallLocal();
-
-// function addEventListenerToEmojiContainer() {
-//   const wrapper = document.querySelector(".p-customize_emoji_wrapper");
-//   wrapper.addEventListener("click", handleClick);
-// }
+// recallLocal();
 
 function handleClick(e) {
   if (
@@ -15,8 +10,14 @@ function handleClick(e) {
     e.target.nodeName === "IMG" &&
     e.target.src.includes("emoji")
   ) {
-    imageSources.add(e.target.src);
-    console.log("Number of images: ", imageSources.size);
+    if (imageSources.has(e.target.src)) {
+      imageSources.delete(e.target.src);
+      e.target.classList.remove("snarfed-image");
+    } else {
+      imageSources.add(e.target.src);
+      e.target.classList.add("snarfed-image");
+    }
+    console.log("Target: ", e.target);
     saveLocal();
   }
 }
@@ -31,6 +32,5 @@ async function recallLocal() {
     recalledData.forEach((element) => {
       imageSources.add(element);
     });
-    console.log("Parsed Size: ", imageSources.size);
   }
 }

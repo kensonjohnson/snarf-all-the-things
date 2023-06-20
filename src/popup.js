@@ -33,6 +33,10 @@ async function handleClick() {
       target: { tabId: tab.id },
       files: ["content.js"],
     });
+    chrome.scripting.insertCSS({
+      target: { tabId: tab.id },
+      files: ["content.css"],
+    });
   }
 }
 
