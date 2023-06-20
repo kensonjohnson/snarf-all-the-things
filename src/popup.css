@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 .toggle-container {
   display: flex;
   align-items: center;

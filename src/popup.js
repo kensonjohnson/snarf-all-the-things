@@ -5,6 +5,7 @@ chrome.storage.session.setAccessLevel({
 });
 
 const toggle = document.getElementById("toggle");
+const hiddenContainer = document.getElementById("hidden-container");
 const counterDisplay = document.getElementById("count");
 const downloadButton = document.getElementById("download-button");
 
@@ -37,6 +38,13 @@ async function handleClick() {
       target: { tabId: tab.id },
       files: ["content.css"],
     });
+    hiddenContainer.classList.remove("hidden");
+  } else {
+    chrome.scripting.removeCSS({
+      target: { tabId: tab.id },
+      files: ["content.css"],
+    });
+    hiddenContainer.classList.add("hidden");
   }
 }
 
