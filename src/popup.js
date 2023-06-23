@@ -19,6 +19,7 @@ updateLinkCount();
 chrome.action.getBadgeText({ tabId: tab.id }).then((currentText) => {
   if (currentText === "ON") {
     toggle.checked = true;
+    hiddenContainer.classList.remove("hidden");
   }
 });
 
