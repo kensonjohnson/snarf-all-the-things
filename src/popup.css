@@ -2,6 +2,12 @@
   display: none;
 }
 
+#hidden-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .toggle-container {
   display: flex;
   align-items: center;
@@ -117,7 +123,7 @@
   left: 10%;
 }
 
-#download-button {
+.popup-button {
   align-items: center;
   background-clip: padding-box;
   background-color: #86d993;
@@ -147,17 +153,17 @@
   width: auto;
 }
 
-#download-button:hover,
-#download-button:focus {
+.popup-button:hover,
+.popup-button:focus {
   background-color: #fb8332;
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
-#download-button:hover {
+.popup-button:hover {
   transform: translateY(-1px);
 }
 
-#download-button:active {
+.popup-button:active {
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
