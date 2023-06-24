@@ -1,8 +1,8 @@
 document.body.addEventListener("click", handleClick);
 
-const imageSources = new Set();
-
-// recallLocal();
+if (!imageSources) {
+  var imageSources = new Set();
+}
 
 function handleClick(e) {
   if (
@@ -17,7 +17,7 @@ function handleClick(e) {
       imageSources.add(e.target.src);
       e.target.classList.add("snarfed-image");
     }
-    console.log("Target: ", e.target);
+
     saveLocal();
   }
 }
@@ -29,8 +29,9 @@ function saveLocal() {
 async function recallLocal() {
   const recalledData = await chrome.storage.session.get("imageSources");
   if (Array.isArray(recalledData)) {
-    recalledData.forEach((element) => {
-      imageSources.add(element);
+    imageSources.clear();
+    recalledData.forEach((url) => {
+      imageSources.add(url);
     });
   }
 }
